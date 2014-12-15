@@ -6,6 +6,19 @@ $izlazniFajl = fopen('date-output.txt', 'a');
 
 foreach($lines as $line) {
 
+$meseciUGodini = array(
+  "Jan" => "01",
+  "Feb" => "02",
+  "Mar" => "03",
+  "Apr" => "04",
+  "May" => "05",
+  "Jun" => "06",
+  "Jul" => "07",
+  "Aug" => "08",
+  "Sep" => "09",
+  "Oct" => "10",
+  "Nov" => "11",
+  "Dec" => "12" );
 
 
     $neobradjenDatum = trim($line);
@@ -44,7 +57,7 @@ foreach($lines as $line) {
 
         elseif (preg_match("/([A-Z][a-z][a-z])\s(\d{2}).\s(\d{2})/", $neobradjenDatum, $matches) === 1) {
             $dan = $matches[2];
-            $mesec = $matches[1];
+            $mesec = $meseciUGodini[$matches[1]];
             $godina = $matches[3];
             $datum = "19{$godina}-{$mesec}-{$dan}";
         }
